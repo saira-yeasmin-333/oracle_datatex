@@ -8,8 +8,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const apiBase="/datatex"
 app.use(apiBase+'/auth',authRouter)
-const port=process.env.PORT || 8080;
+const port=process.env.PORT || 8088;
 
 app.listen(port, () => {
-    console.log(`Example app listening at port : ${port}`)
+    console.log(`App listening at port : ${port}`)
 })
