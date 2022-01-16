@@ -23,6 +23,12 @@ class AuthController {
                         success: false
                     });
                     break;
+
+                case process.env.ERROR_NOT_FOUND_EMPLOYEE_ID:
+                    res.status(204).json({
+                        success: false
+                    });
+                    break;
             }
 
         }
@@ -66,7 +72,7 @@ class AuthController {
     }
 
     getEmployees = async(req, res) => {
-        let result = await authRepository.getAllEmployees(req.params.id);
+        let result = await authRepository.getAllEmployees();
         if (result.success) {
             res.status(200).json(result.data);
         } else {
@@ -78,6 +84,19 @@ class AuthController {
 
     delete= async(req,res)=>{
         let result = await authRepository.delete(req.params.id)
+        if (result.success) {
+            res.status(200).json({
+                success:true
+            });
+        } else {
+            res.status(404).json({
+                success: false,
+            });
+        }
+    }
+
+    addStaff= async(req,res)=>{
+        let result = await authRepository.addStaff(req.body)
         if (result.success) {
             res.status(200).json({
                 success:true
