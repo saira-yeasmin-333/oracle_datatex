@@ -2,9 +2,9 @@ import React from 'react'
 
 const FormSuccess = () => {
     return (
-        <div>
-           <h1> Success</h1>
-        </div>
+        <>
+           <a href="http://localhost:3000/sign-in">Success</a>
+        </>
     )
 }
 
